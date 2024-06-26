@@ -30,11 +30,7 @@ func (r *Tagger) FetchUpdate() {
 			continue
 		}
 
-		needPublish, err := r.MergedVersions(versions, published)
-		if err != nil {
-			color.Redln(err.Error())
-			continue
-		}
+		needPublish := r.MergedVersions(versions, published)
 		if len(needPublish) == 0 {
 			continue
 		}
@@ -45,12 +41,12 @@ func (r *Tagger) FetchUpdate() {
 		}
 
 		built, err := r.BuiltVersions()
-		needBuild, err := r.MergedVersions(needPublish, built)
 		if err != nil {
 			color.Redln(err.Error())
 			continue
 		}
 
+		needBuild := r.MergedVersions(needPublish, built)
 		color.Greenln("需要构建的版本列表: ")
 		for _, v := range needBuild {
 			color.Greenln(fmt.Sprintf("%s (%s)", v.Name, v.Revision))

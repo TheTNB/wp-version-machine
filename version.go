@@ -127,7 +127,7 @@ func (r *Tagger) BuiltVersions() ([]Version, error) {
 }
 
 // MergedVersions 合并版本列表
-func (r *Tagger) MergedVersions(versions, unMerged []Version) ([]Version, error) {
+func (r *Tagger) MergedVersions(versions, unMerged []Version) []Version {
 	var merged []Version
 	for _, v := range versions {
 		flag := false
@@ -152,7 +152,7 @@ func (r *Tagger) MergedVersions(versions, unMerged []Version) ([]Version, error)
 		filtered = append(filtered, merged[i])
 	}
 
-	return filtered, nil
+	return filtered
 }
 
 func (r *Tagger) VersionCompare(ver1, ver2, operator string) bool {
