@@ -1,16 +1,17 @@
-module wordpress-tagger
+module wp-version-machine
 
 go 1.22
 
 require (
+	github.com/antchfx/htmlquery v1.3.2
 	github.com/gookit/color v1.5.4
 	github.com/imroc/req/v3 v3.43.7
 	github.com/joho/godotenv v1.5.1
+	github.com/spf13/cast v1.6.0
 )
 
 require (
 	github.com/andybalholm/brotli v1.1.0 // indirect
-	github.com/antchfx/htmlquery v1.3.2 // indirect
 	github.com/antchfx/xpath v1.3.1 // indirect
 	github.com/cloudflare/circl v1.3.9 // indirect
 	github.com/go-task/slim-sprig/v3 v3.0.0 // indirect
@@ -23,7 +24,6 @@ require (
 	github.com/quic-go/qpack v0.4.0 // indirect
 	github.com/quic-go/quic-go v0.45.1 // indirect
 	github.com/refraction-networking/utls v1.6.6 // indirect
-	github.com/spf13/cast v1.6.0 // indirect
 	github.com/xo/terminfo v0.0.0-20210125001918-ca9a967f8778 // indirect
 	go.uber.org/mock v0.4.0 // indirect
 	golang.org/x/crypto v0.24.0 // indirect
