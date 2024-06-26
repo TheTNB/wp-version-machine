@@ -1,0 +1,41 @@
+project_name: wp-auto-machine
+
+builds:
+  - id: wp-auto-machine
+    binary: wp-auto-machine
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+    goarch:
+      - amd64
+      - arm64
+    goamd64:
+      - v3
+    ldflags:
+      - -s -w --extldflags "-static"
+    tags:
+      - nomsgpack
+
+upx:
+  - enabled: true
+    # Filter by build ID.
+    ids: [ wp-auto-machine ]
+    # Compress argument.
+    # Valid options are from '1' (faster) to '9' (better), and 'best'.
+    compress: best
+    # Whether to try LZMA (slower).
+    lzma: true
+    # Whether to try all methods and filters (slow).
+    brute: false
+
+archives:
+  - id: wp-auto-machine-archive
+    builds:
+      - wp-auto-machine
+    format: zip
+    wrap_in_directory: false
+    strip_binary_directory: true
+    files:
+      - LICENSE
+      - .env.example
